@@ -24,16 +24,19 @@ public class GetResources {
     }
 
     public static void start () throws IOException {
+        long startTimer = System.nanoTime();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
                     JSONObject res = new JSONObject(getResources());
+                    long currentTime = System.nanoTime() - startTimer;
                     JSONArray content = res.getJSONArray("content");
                     for (Object o : content) {
                         JSONObject ress = new JSONObject(o.toString());
                         resources.add(new AllResources(ress.getString("processCPU"), ress.getString("processMem"),
-                                ress.getString("systemCPU"), ress.getString("systemFreeMem"), ress.getString("systemTotalMem")));
+                                ress.getString("systemCPU"), ress.getString("systemFreeMem"),
+                                ress.getString("systemTotalMem"), currentTime/1000000000));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

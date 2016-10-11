@@ -36,6 +36,9 @@ public class Csv {
                 writer.append(allResource.systemFreeMem);
                 writer.append(',');
                 writer.append(allResource.systemTotalMem);
+                writer.append(',');
+                String time = new String (String.valueOf(allResource.processingTime));
+                writer.append(time);
                 writer.append('\n');
             }
             writer.flush();
