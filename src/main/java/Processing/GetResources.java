@@ -20,7 +20,7 @@ public class GetResources {
     private static Timer timer = new Timer();
 
     private static String getResources() throws IOException{
-        return HttpRequester.get(Connection.HttpConnection("http://10.100.78.77:9800/all?processName=firefox"));
+        return HttpRequester.get(Connection.HttpConnection("http://localhost:9800/all?processName=firefox"));
     }
 
     public static void start () throws IOException {

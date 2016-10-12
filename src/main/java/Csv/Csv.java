@@ -24,6 +24,8 @@ public class Csv {
             writer.append("systemFreeMem");
             writer.append(',');
             writer.append("systemTotalMem");
+            writer.append(',');
+            writer.append("processingTime");
             writer.append('\n');
 
             for (AllResources allResource : allResources) {
