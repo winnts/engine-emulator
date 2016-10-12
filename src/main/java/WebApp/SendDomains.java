@@ -9,24 +9,12 @@ import java.util.List;
  * Created by adyachenko on 11.10.16.
  */
 public class SendDomains {
-    private long id;
-
-    private List<Domains> content;
-
-    public SendDomains(long id, List<Domains> content){
-        this.id = id;
-        this.content = content;
+    private List<Domains> domains;
+    public SendDomains(List<Domains> domains){
+        this.domains = domains;
     }
-
-
     @JsonProperty
-    public long getId() {
-        return id;
+    public List<Domains> getDomains() {
+        return domains;
     }
-
-    @JsonProperty
-    public List<Domains> getContent() {
-        return content;
-    }
-
 }

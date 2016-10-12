@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Created by adyachenko on 29.08.16.
  */
-@Path("/hosts")
+@Path("/hosts/{hash: [a-zA-Z][a-zA-Z_0-9]*}/domains")
 @Produces(MediaType.APPLICATION_JSON)
 public class EmulatorAppHosts {
     private final String template;
@@ -29,7 +29,7 @@ public class EmulatorAppHosts {
     @Timed
     public SendDomains sendAll() throws IOException {
         GetResources.start();
-        return new SendDomains(counter.incrementAndGet(), Processing.GetDomains.getDomains());
+        return new SendDomains(Processing.GetDomains.getDomains());
     }
 
     @PATCH
