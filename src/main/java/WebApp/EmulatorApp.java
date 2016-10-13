@@ -30,14 +30,7 @@ public class EmulatorApp extends Application <EmulatorAppConfiguration> {
         config = emulatorAppConfiguration;
         final EmulatorAppDomains resource = new EmulatorAppDomains(
                 emulatorAppConfiguration.getTemplate()
-//                emulatorAppConfiguration.getDefaultName()
-        );
-        final EmulatorAppHosts resource1 = new EmulatorAppHosts(
-                emulatorAppConfiguration.getTemplate()
         );
         environment.jersey().register(resource);
-        environment.jersey().register(resource1);
-
-
     }
 }
