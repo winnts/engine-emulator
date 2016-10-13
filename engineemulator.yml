@@ -1,4 +1,6 @@
 template: '%s'
+url: 'http://10.8.3.68:9800/all?processName='
+processName: 'cwatch%20agent%3A%20general'
 server:
   applicationConnectors:
   - type: http

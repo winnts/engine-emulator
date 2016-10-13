@@ -1,6 +1,7 @@
 package Processing;
 
 import Entity.AllResources;
+import WebApp.EmulatorApp;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,7 +21,7 @@ public class GetResources {
     private static Timer timer = new Timer();
 
     private static String getResources() throws IOException{
-        return HttpRequester.get(Connection.HttpConnection("http://localhost:9800/all?processName=firefox"));
+        return HttpRequester.get(Connection.HttpConnection(EmulatorApp.config.getUrl()+EmulatorApp.config.getProcessName()));
     }
 
     public static void start () throws IOException {
@@ -43,7 +44,6 @@ public class GetResources {
                 }
             }
         }, 0, 1000);
-
     }
 
     public static void stop (){

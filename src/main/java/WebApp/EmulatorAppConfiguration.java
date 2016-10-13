@@ -12,11 +12,33 @@ public class EmulatorAppConfiguration extends Configuration {
     private String template;
 
     @NotEmpty
-    private String defaultName = "monitorapp";
+    private String defaultName = "emulatorapp";
+
+    @NotEmpty
+    private String url;
+
+    @NotEmpty
+    private String processName;
 
     @JsonProperty
     public String getTemplate() {
         return template;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getProcessName() {
+        return processName;
+    }
+
+    public void setProcessName(String processName) {
+        this.processName = processName;
     }
 
     @JsonProperty

@@ -9,6 +9,8 @@ import io.dropwizard.setup.Environment;
  * Created by adyachenko on 29.08.16.
  */
 public class EmulatorApp extends Application <EmulatorAppConfiguration> {
+    public static EmulatorAppConfiguration config;
+
     public static void main(String[] args) throws Exception{
         new EmulatorApp().run(args);
     }
@@ -24,12 +26,17 @@ public class EmulatorApp extends Application <EmulatorAppConfiguration> {
     }
 
     @Override
-    public void run(EmulatorAppConfiguration monitorAppConfiguration, Environment environment) {
-        final EmulatorAppHosts resource = new EmulatorAppHosts(
-                monitorAppConfiguration.getTemplate()
-//                monitorAppConfiguration.getDefaultName()
+    public void run(EmulatorAppConfiguration emulatorAppConfiguration, Environment environment) {
+        config = emulatorAppConfiguration;
+        final EmulatorAppDomains resource = new EmulatorAppDomains(
+                emulatorAppConfiguration.getTemplate()
+//                emulatorAppConfiguration.getDefaultName()
+        );
+        final EmulatorAppHosts resource1 = new EmulatorAppHosts(
+                emulatorAppConfiguration.getTemplate()
         );
         environment.jersey().register(resource);
+        environment.jersey().register(resource1);
 
 
     }
